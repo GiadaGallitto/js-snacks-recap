@@ -14,17 +14,23 @@
 
     <body>
         <div id="app">
-            <header>
-                <button id="play">Clicca per giocare!</button>
-            </header>
             <main>
-                <div class="red-part text-danger">
-
-                </div>
-                <div class="green-part text-success">
-
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>Name List</h1>
+                    </div>
+                    <div class="col-12 input-group">
+                        <label for="user-name">Inserisci il tuo nome</label>
+                        <input type="text" id="user-name" v-model="userName" @keyup.enter="checkUserName(userName)">
+                    </div>
+                    <div class="col-12">
+                        <h2> {{answer}}</h2>
+                    </div>
                 </div>
             </main>
         </div>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="./js/script.js"></script>
     </body>
 </html>
