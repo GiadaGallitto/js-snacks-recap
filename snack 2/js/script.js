@@ -18,7 +18,7 @@ createApp({
 
     methods: {
         checkUserName(userName){
-            if(userName === this.nameList[this.randomName]){
+            if(this.nameList.includes(userName)){
                 this.answer = `Benvenuto!`
             } else {
                 this.answer = `Accesso Negato!`
