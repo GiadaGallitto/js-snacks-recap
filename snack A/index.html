@@ -19,10 +19,19 @@
             <header class="container text-center">
                 <h1>Random Chat</h1>
             </header>
-            <main class="container mt-3">
-                <div class="chat-screen row">
-                    <div class="col-12">
-
+            <main  class="container mt-3">
+                <div class="chat-screen">
+                    <div v-for="element in messages" class="chat-container row">
+                        <div class="col-12" >
+                            <div class="subject-message">
+                                <h6>
+                                    {{element.subject}}
+                                </h6>
+                                <p>
+                                    {{element.message}}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="writing-part row">

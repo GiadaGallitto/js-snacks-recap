@@ -7,8 +7,8 @@ main{
 
 .chat-screen{
     height: 90%;
-    border: 1px solid black;
     overflow-y: auto;
+    width: 100%;
 }
 
 .writing-part{

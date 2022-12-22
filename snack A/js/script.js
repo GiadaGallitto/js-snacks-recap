@@ -10,7 +10,8 @@ createApp({
     data(){
         return{
             messages: [],
-            inputText: null
+            inputText: null,
+            randomMessage: ""
         }
     },
 
@@ -18,18 +19,26 @@ createApp({
         addNewMessage(content){
             if(content != null && content != ""){
                 this.messages.push({
-                    subject : "Tu:", message : content, status : "sent"
+                    subject : "Tu:", message : this.inputText, status : "sent"
                 });
                 setTimeout(() => {
                     this.messages.push({
-                        subject : "Computer:", message : , status : "received"
+                        subject : "Computer:", message : `${this.getRandomAnswer()}` , status : "received"
                     })
-                })
+                }, 2000)
             }
         },
 
         getRandomAnswer(){
-            
+            axios.get(`https://flynn.boolean.careers/exercises/api/random/sentence`)
+            .then((response) => {
+            this.randomMessage = response.data.response
+            console.log(this.randomMessage)
+            })
+
+            const computerMessage = this.randomMessage
+
+            return computerMessage
         }
     },
     
