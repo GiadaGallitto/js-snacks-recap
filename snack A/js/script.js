@@ -11,7 +11,6 @@ createApp({
         return{
             messages: [],
             inputText: null,
-            randomMessage: ""
         }
     },
 
@@ -21,24 +20,23 @@ createApp({
                 this.messages.push({
                     subject : "Tu:", message : this.inputText, status : "sent"
                 });
-                setTimeout(() => {
-                    this.messages.push({
-                        subject : "Computer:", message : `${this.getRandomAnswer()}` , status : "received"
-                    })
-                }, 2000)
+                this.getRandomAnswer();
+                this.inputText = "";
             }
         },
 
         getRandomAnswer(){
+            let computerMessage = "";
             axios.get(`https://flynn.boolean.careers/exercises/api/random/sentence`)
             .then((response) => {
-            this.randomMessage = response.data.response
-            console.log(this.randomMessage)
-            })
-
-            const computerMessage = this.randomMessage
-
-            return computerMessage
+                computerMessage = response.data.response;
+                console.log(computerMessage);
+                setTimeout(() => {
+                    this.messages.push({
+                        subject : "Computer:", message : `${computerMessage}` , status : "received"
+                    });
+                }, 1000)
+            });
         }
     },
     

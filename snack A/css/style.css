@@ -7,8 +7,7 @@ main{
 
 .chat-screen{
     height: 90%;
-    overflow-y: auto;
-    width: 100%;
+    padding: 1.5rem;
 }
 
 .writing-part{
@@ -18,4 +17,8 @@ main{
 
 .writing-part input{
     width: 90%;
+}
+
+.writing-part button{
+    width: 10%;
 }
