@@ -9,12 +9,28 @@ const {createApp} = Vue;
 createApp({
     data(){
         return{
-
+            messages: [],
+            inputText: null
         }
     },
 
     methods: {
+        addNewMessage(content){
+            if(content != null && content != ""){
+                this.messages.push({
+                    subject : "Tu:", message : content, status : "sent"
+                });
+                setTimeout(() => {
+                    this.messages.push({
+                        subject : "Computer:", message : , status : "received"
+                    })
+                })
+            }
+        },
 
+        getRandomAnswer(){
+            
+        }
     },
     
 }).mount(`#app`)
