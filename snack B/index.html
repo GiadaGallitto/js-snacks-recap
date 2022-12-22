@@ -20,6 +20,7 @@
                 <h1>Random Number</h1>
             </header>
             <main  class="container mt-3">
+
                 <div class="writing-part row">
                     <div class="col-12 h-100 d-flex p-2">
                         <div class="input-group-text w-100 bg-white ps-3">
@@ -31,20 +32,17 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="show-numbers">
-                    <!-- <div v-for="element in messages" class="nums-container row">
+                    <div v-for="element in numList" class="nums-container row">
                         <div class="col-12" >
-                            <div class="subject-message">
-                                <h6>
-                                    {{element.subject}}
-                                </h6>
-                                <p>
-                                    {{element.message}}
-                                </p>
-                            </div>
+                            <h6>
+                                {{element}}
+                            </h6>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
+
             </main>
         </div>
 

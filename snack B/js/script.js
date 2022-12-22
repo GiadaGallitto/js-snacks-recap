@@ -2,34 +2,30 @@
 Generare attraverso l'API (array/integers) un array contenente N numeri compresi tra 1 e 100.
 Stampare a schermo la somma dei numeri generati. */
 
-const {createApp} = Vue;
+const { createApp } = Vue;
 
 createApp({
-    data(){
-        return{
-            numbers: [],
-            inputNumber: 0,
+    data() {
+        return {
+            numList: [],
+            inputNumber: "",
         }
     },
 
     methods: {
-        addUserNumbers(inputNumber){
-            if(inputNumber != null && inputNumber != "" && (!inputNumber < 1 )){
+        addUserNumbers(inputNumber) {
+            if (inputNumber != null && inputNumber != "" && (!inputNumber < 1)) {
                 this.getRandomNumbers(inputNumber)
             }
         },
 
-        getRandomNumbers(num){
-            let randomNumber = "";
-            for(i=0; i < num; i++){
-                axios.get(`https://flynn.boolean.careers/exercises/api/random/sentence`)
+        getRandomNumbers(inputNumber) {
+            axios.get(`https://flynn.boolean.careers/exercises/api/array/integers?min=1&max=100&items=${this.inputNumber}`)
                 .then((response) => {
-                    randomNumber = response.data.response;
-                    console.log(randomNumber);
-                    this.numbers.push(randomNumber)
+                    this.numList = response.data.response;
+                    console.log(this.numList);
                 });
-            }
         }
     },
-    
+
 }).mount(`#app`)
